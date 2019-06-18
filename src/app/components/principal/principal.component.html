@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container m-5">
     <button class="btn btn-outline-success" (click)="back()" >Regresar</button>
   <table class="table">
@@ -7,16 +8,20 @@
           <th>Correo</th>
           <th>Password</th>
       </thead>
-      <tbody *ngFor="let cliente of data; let i = index">
-          <td>{{i}}</td>
-          <td>{{cliente.nombre}}</td>
-          <td>{{cliente.correo}}</td>
-          <td>{{cliente.password}}</td>
+      <tbody>
+          <tr *ngFor="let cliente of data; let i = index">
+              <td>{{i}}</td>
+              <td>{{cliente.nombre}}</td>
+              <td>{{cliente.email}}</td>
+              <td>{{cliente.telefono}}</td>
+          </tr>
       </tbody>
   </table>
+  <button class="btn btn-success" (click)="agregar=!agregar">Agregar</button>
   <button class="btn btn-danger" (click)="eliminar=!eliminar" >Eliminar</button>
   <button class="btn btn-warning" (click)="modificar=!modificar" >Modificar</button>
 </div>
-
+<p>Recargar para actualizar</p>
+<app-crear *ngIf="agregar" (close)="create($event)"></app-crear>
 <app-eliminar *ngIf="eliminar" (close)="delete($event)" ></app-eliminar>
 <app-modificar *ngIf="modificar" (close)="update($event)"></app-modificar>

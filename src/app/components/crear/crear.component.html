@@ -1,0 +1,16 @@
+<div class="background">
+    <div class="box">
+      <button class="close" (click)="onClose()">x</button>
+      <h2><p>Agregar</p></h2>
+      <hr>
+
+      <div class="body">
+        <p>Escribe el id</p>
+        <input type="form-control" placeholder="Nombre" [(ngModel)]="nombre"><br>
+        <input type="form-control" placeholder="Correo" [(ngModel)]="correo"><br>
+        <input type="form-control" placeholder="Telefono" [(ngModel)]="telefono"><br>
+
+        <button class="btn btn-success btn-block" (click)="agregar()">Agregar</button>
+    </div>
+    </div>
+  </div>

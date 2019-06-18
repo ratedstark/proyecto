@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
-const headers={
-  'Content-Type':'application/x-www-form-urlencoded'
-}
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +14,25 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
+  newclient(body:any){
+    return this.http.post(this.url + "/aprendeaprogramar3/usuarios.json",body);
+  }
+
   clientes(){
-    return this.http.get(this.url + "/clientes.json");
+    return this.http.get(this.url + "/aprendeaprogramar3/usuarios.json")
+    .pipe(
+        map(data=>{
+          return this.extractData(data);
+        })
+    );
+  }
+
+  extractData(data:any){
+    const users:any[] = [];
+    for(let i in data){
+      users.push(data[i]);
+    }
+    return users;
   }
 
   eliminar(rest:any){

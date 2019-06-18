@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule} from '@angular/common/http';
 import { ModificarComponent } from './components/modificar/modificar.component';
 import { EliminarComponent } from './components/eliminar/eliminar.component';
+import { CrearComponent } from './components/crear/crear.component';
 
 
 
@@ -24,6 +25,7 @@ import { EliminarComponent } from './components/eliminar/eliminar.component';
     RegisterComponent,
     ModificarComponent,
     EliminarComponent,
+    CrearComponent,
   ],
   imports: [
     BrowserModule,

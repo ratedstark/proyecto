@@ -12,14 +12,17 @@ export class PrincipalComponent implements OnInit {
   constructor(private api:ApiService,
               private location:Location) { }
   data:any;
+
   @Output() eliminar=false;
   @Output() registrar=false;
   @Output() modificar=false;
+  @Output() agregar=false;
 
 
    ngOnInit() {
-     this.api.clientes().subscribe(data=>
-      this.data = data);
+     this.api.clientes().subscribe(data=>{
+      this.data = data;
+     });
   }
 
   delete(event){
@@ -33,5 +36,10 @@ export class PrincipalComponent implements OnInit {
   back(){
     this.location.back();
   }
+
+  create(event){
+    this.agregar = event.value;
+  }
+
 
 }
