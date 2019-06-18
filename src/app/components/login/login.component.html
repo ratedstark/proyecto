@@ -1,0 +1,18 @@
+<div class="container m-5">
+
+    <div class="box">
+
+      <h3><p>Ingresa tus datos</p></h3>
+
+          <input class="form-control" placeholder="Correo"  email required [(ngModel)]="correo" >
+          <input class="form-control"  placeholder="Password" required [(ngModel)]="password" type="password" minlength="6">
+          <button class="btn btn-primary btn-lg btn-block" (click)="login()">Login</button>
+
+
+          <p><a [routerLink]="['/Registro']">¿Aun no estas registrado?</a></p>
+
+          <div class="alert alert-danger" role="alert" *ngIf="mensaje">
+              Datos incorrectos, intente de nuevo
+          </div>
+    </div>
+</div>
